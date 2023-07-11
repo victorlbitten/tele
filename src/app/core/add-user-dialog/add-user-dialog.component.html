@@ -1,0 +1,173 @@
+<app-card>
+    <div class="dialog-container">
+        <ng-container *ngTemplateOutlet="shownFormControllers"></ng-container>
+
+        <ng-container *ngIf="showUsersForm">
+            <ng-container *ngTemplateOutlet="userFormTemplate"></ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="!showUsersForm">
+            <ng-container *ngTemplateOutlet="pacientFormTemplate"></ng-container>
+        </ng-container>
+
+        <ng-container *ngTemplateOutlet="controlBtns"></ng-container>
+    </div>
+</app-card>
+
+<ng-template #shownFormControllers>
+    <div class="shown-form-controllers-container">
+        <div class="shown-form-controllers-btn" [ngClass]="{'active-form': showUsersForm}"
+            (click)="showDoctorsForm()">Médico</div>
+        <div class="shown-form-controllers-btn" [ngClass]="{'active-form': !showUsersForm}"
+            (click)="showPacientsForm()">Paciente</div>
+    </div>
+</ng-template>
+
+
+<ng-template #userFormTemplate>
+    <form action="" [formGroup]="userForm">
+        <div class="form-container">
+            <!-- First name -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Primeiro nome</mat-label>
+                    <input matInput formControlName="firstName">
+                </mat-form-field>
+            </div>
+
+            <!-- Last name -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Sobrenome</mat-label>
+                    <input matInput formControlName="lastName">
+                </mat-form-field>
+            </div>
+
+            <!-- Username -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Nome de usuário</mat-label>
+                    <input matInput formControlName="username">
+                </mat-form-field>
+            </div>
+
+            <!-- Specialization -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Área de especialização</mat-label>
+                    <input matInput formControlName="specialization">
+                </mat-form-field>
+            </div>
+
+            <!-- CRM -->
+            <div>
+                <mat-form-field>
+                    <mat-label>CRM</mat-label>
+                    <input matInput formControlName="crm">
+                </mat-form-field>
+            </div>
+
+            <!-- Password -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</ng-template>
+
+
+
+<ng-template #pacientFormTemplate>
+    <form action="" [formGroup]="pacientForm">
+        <div class="form-container">
+            <!-- Name -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <!-- Birth date -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Data de nascimento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <!-- Sex -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Sexo</mat-label>
+                    <mat-select formControlName="sex">
+                        <mat-option [value]="'Masculino'">
+                            Masculino
+                        </mat-option>
+                        <mat-option [value]="'Feminino'">
+                            Feminino
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <!-- Street -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Rua</mat-label>
+                    <input matInput formControlName="street">
+                </mat-form-field>
+            </div>
+
+            <!-- Number -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Número</mat-label>
+                    <input matInput formControlName="number">
+                </mat-form-field>
+            </div>
+
+            <!-- Additional info -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Complemento</mat-label>
+                    <input matInput formControlName="additionalInfo">
+                </mat-form-field>
+            </div>
+
+            <!-- State -->
+            <div>
+                <mat-form-field>
+                    <mat-label>UF</mat-label>
+                    <input matInput formControlName="state">
+                </mat-form-field>
+            </div>
+
+            <!-- City -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Cidade</mat-label>
+                    <input matInput formControlName="city">
+                </mat-form-field>
+            </div>
+
+            <!-- ZIP code -->
+            <div>
+                <mat-form-field>
+                    <mat-label>CEP</mat-label>
+                    <input matInput formControlName="zipCode">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</ng-template>
+
+
+<ng-template #controlBtns>
+    <app-system-btn (click)="onSubmit()" [affirmativeOutlined]="true">Adicionar</app-system-btn>
+</ng-template>

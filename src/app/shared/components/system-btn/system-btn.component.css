@@ -1,0 +1,67 @@
+.system-btn {
+    padding: var(--padding-small);
+    border: var(--border-default);
+    border-radius: var(--border-radius-soft);
+    box-shadow: 2px 2px 5px #aaa;
+
+    transition: background-color .3s ease;
+    transition: box-shadow .3s ease;
+}
+
+.system-btn-small {
+    padding: var(--padding-xsmall);
+}
+
+.warning {
+    background-color: var(--ribbon-85);
+    border-color: var(--ribbon-100);
+    color: var(--pure-white);
+}
+
+.warning:hover {
+    background-color: var(--ribbon-100);
+    box-shadow: 2px 2px 1px #999;
+    cursor: pointer;
+}
+
+
+.warning-outlined {
+    background-color: var(--pure-white);
+    border-color: var(--ribbon-85);
+    color: var(--ribbon-85);
+}
+
+.warning-outlined:hover {
+    background-color: var(--ribbon-85);
+    color: var(--pure-white);
+    box-shadow: 2px 2px 1px #999;
+    cursor: pointer;
+}
+
+
+
+.affirmative {
+    background-color: var(--teal-85);
+    border-color: var(--teal-100);
+    color: var(--pure-white);
+}
+
+.affirmative:hover {
+    background-color: var(--teal-100);
+    box-shadow: 2px 2px 1px #999;
+    cursor: pointer;
+}
+
+
+.affirmative-outlined {
+    background-color: var(--pure-white);
+    border-color: var(--teal-100);
+    color: var(--teal-100);
+}
+
+.affirmative-outlined:hover {
+    background-color: var(--teal-100);
+    color: var(--pure-white);
+    box-shadow: 2px 2px 1px #999;
+    cursor: pointer;
+}

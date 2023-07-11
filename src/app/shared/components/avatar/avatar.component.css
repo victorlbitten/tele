@@ -1,0 +1,31 @@
+.avatar-container {
+    --pic-size: 60px;
+    display: flex;
+    gap: var(--padding-horizontal-xsmall);
+    align-items: center;
+}
+
+
+.small {
+    --pic-size: 50px;
+}
+:host ::ng-deep .small span{
+    font-size: var(--font-size-small);
+}
+
+
+.extra-small {
+    --pic-size: 40px;
+}
+:host ::ng-deep .extra-small span{
+    font-size: var(--font-size-small);
+}
+
+
+.avatar-circle {
+    width: var(--pic-size);
+    height: var(--pic-size);
+    background-color: var(--plum-50);
+    border-radius: 50%;
+    border: 2px solid var(--teal-100)
+}

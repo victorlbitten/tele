@@ -1,0 +1,36 @@
+<app-card [shadow]="true" [lean]="true">
+    <div class="appointment-container"
+        [ngClass]="{'appointment-container-attendable': attendable}">
+        <!-- Pacient Name -->
+        <div class="appointment-header">
+            <app-avatar [name]="appointment.pacient.generalInfo['name']"></app-avatar>
+            <div class="appointment-date">
+                <span class="appointment-day">{{appointmentDay}}</span>
+                <span class="appointment-time">{{appointmentTime.start}} - {{appointmentTime.end}}</span>
+            </div>
+            
+            <!-- Doctor info -->
+            <div class="appointment-doctor-container">
+                <app-mini-doctor-card [doctor]="appointment.doctor"
+                    [extraSmall]="true" [bordered]="false">
+                </app-mini-doctor-card>
+            </div>
+        </div>
+    
+    
+        <div class="info-container">
+            <!-- Clinical condition -->
+            <app-clinical-conditions [clinicalConditions]="appointment.clinicalConditions" class="clinical-condition-info">
+            </app-clinical-conditions>
+            <!-- Prescriptions -->
+            <app-prescriptions [prescriptions]="appointment.prescriptions"></app-prescriptions>
+        </div>
+
+        <div class="start-appointment-btn">
+            <app-system-btn [affirmativeOutlined]="true"
+                [routerLink]="['/appointments', appointment.appointmentId, 'attendance']">
+                    Iniciar consulta
+                </app-system-btn>
+        </div>
+    </div>
+</app-card>

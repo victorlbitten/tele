@@ -1,0 +1,5 @@
+<div *ngIf="pacients$ | async" style="display: flex; flex-direction: column; gap: 15px;">
+    <ng-container *ngFor="let pacient of pacients$ | async">
+        <app-pacient-card [pacient]="pacient"></app-pacient-card>
+    </ng-container>
+</div>

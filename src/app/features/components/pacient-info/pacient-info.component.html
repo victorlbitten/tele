@@ -1,0 +1,33 @@
+<app-card [lean]="true">
+    <div class="general-info-container">
+        <!-- Avatar and name -->
+        <app-avatar [name]="pacient.generalInfo.name"></app-avatar>
+        <!-- Personal info -->
+        <div class="general-info-personal">
+            <span>Idade: {{pacient.generalInfo.birthdate}}</span>
+            <span>Nascimento: {{pacient.generalInfo.birthdate}}</span>
+            <span>Sexo: {{pacient.generalInfo.sex}}</span>
+        </div>
+        <!-- Address -->
+        <div class="general-info-address-container">
+            <!-- First line -->
+            <div>
+                <span>
+                    Logradouro: {{pacient.address.street}}, {{pacient.address.number}}
+                </span>
+                <span>
+                    Complemento: {{pacient.address.additionalInfo}}
+                </span>
+            </div>
+            <!-- Second line -->
+            <div>
+                <span>
+                    Cidade: {{pacient.address.city}}
+                </span>
+                <span>
+                    CEP: {{pacient.address.zipCode}}
+                </span>
+            </div>
+        </div>
+    </div>
+</app-card>

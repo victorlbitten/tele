@@ -1,0 +1,46 @@
+<form [formGroup]="myForm">
+    <!-- Doctor -->
+    <mat-form-field>
+        <mat-label>Médico</mat-label>
+        <mat-select formControlName="doctor">
+            <mat-option *ngFor="let doctor of doctors$ | async" [value]="doctor.id">
+                {{doctor.firstName}} {{doctor.lastName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <!-- Pacient -->
+    <mat-form-field>
+        <mat-label>Paciente</mat-label>
+        <mat-select formControlName="pacient">
+            <mat-option *ngFor="let pacient of pacients$ | async" [value]="pacient.id">
+                {{pacient.generalInfo.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Data da consulta</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" [min]="minDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Start time -->
+    <mat-form-field>
+        <mat-label>Hora de início</mat-label>
+        <input aria-label="12hr format" [ngxTimepicker]="startTime" formControlName="startTime" matInput>
+        <ngx-material-timepicker #startTime></ngx-material-timepicker>
+    </mat-form-field>
+
+    <!-- End time -->
+    <mat-form-field>
+        <mat-label>Hora de término</mat-label>
+        <input aria-label="12hr format" [ngxTimepicker]="endTime" formControlName="endTime" matInput>
+        <ngx-material-timepicker #endTime></ngx-material-timepicker>
+    </mat-form-field>
+
+    <app-system-btn (click)="onSubmit()">Confirmar consulta</app-system-btn>
+</form>

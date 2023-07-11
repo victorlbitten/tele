@@ -1,0 +1,33 @@
+<app-card>
+    <div class="dialog-container">
+        <form action="" [formGroup]="prescriptionForm">
+            <!-- Nome -->
+            <mat-form-field>
+                <mat-label>Nome da medicação</mat-label>
+                <input matInput formControlName="medicationName">
+            </mat-form-field>
+
+            <!-- Dosage -->
+            <mat-form-field>
+                <mat-label>Dosagem</mat-label>
+                <input matInput formControlName="dosage">
+            </mat-form-field>
+
+            <!-- times a day -->
+            <mat-form-field>
+                <mat-label>Doses diárias</mat-label>
+                <input matInput formControlName="timesADay">
+            </mat-form-field>
+
+            <!-- Use instructions -->
+            <mat-form-field>
+                <mat-label>Instruções de uso</mat-label>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5" formControlName="useInstructions"></textarea>
+            </mat-form-field>
+
+            <app-system-btn>
+                <span (click)="close()">Salvar</span>
+            </app-system-btn>
+        </form>
+    </div>

@@ -1,0 +1,35 @@
+html { font-size: calc(15px + 0.390625vw); }
+
+.page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-body {
+    padding: var(--padding-xlarge);
+    flex-grow: 1;
+    overflow: auto;
+    background-color: #f0f0f0;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.list-item {
+    padding: 5px 10px;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #aaa;
+}

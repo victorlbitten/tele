@@ -1,0 +1,83 @@
+<div class="vertical-container-large" *ngIf="appointment$ | async">
+    <ng-container *ngTemplateOutlet="header"></ng-container>
+
+    <ng-container *ngTemplateOutlet="clinicalConditions"></ng-container>
+
+    <ng-container *ngTemplateOutlet="prescriptions"></ng-container>
+
+    <app-system-btn [affirmativeOutlined]="true" [routerLink]="['/pacients', appointment.pacient.id]">Finalizar consulta</app-system-btn>
+
+</div>
+
+
+
+<ng-template #header>
+    <div class="vertical-container-medium">
+        <span>Consulta em andamento</span>
+        <app-pacient-info [pacient]="appointment.pacient">
+        </app-pacient-info>
+    </div>
+</ng-template>
+
+
+<ng-template #clinicalConditions>
+    <div class="vertical-container-small">
+        <span>Condições clínicas</span>
+        <app-card>
+            <div class="vertical-container-small">
+                <!-- Already exist -->
+                <div *ngFor="let condition of appointment.clinicalConditions" class="editable-item">
+                    <app-clinical-condition [condition]="condition">
+                    </app-clinical-condition>
+                    <div class="editable-item-btn">
+                        <app-system-btn [warningOutlined]="true">
+                            <span (click)="deleteClinicalCondition(condition.id)">Deletar</span>
+                        </app-system-btn>
+                        <app-system-btn [affirmative]="true" (click)="openClinicalCondition(condition)">
+                            Abrir
+                        </app-system-btn>
+                    </div>
+                </div>
+                <!-- Created ones -->
+                <app-clinical-conditions [clinicalConditions]="clinicalConditionsTracker.create">
+                </app-clinical-conditions>
+                <app-system-btn [affirmativeOutlined]="true">
+                    <span (click)="createClinicalCondition()">Adicionar</span>
+                </app-system-btn>
+
+            </div>
+        </app-card>
+    </div>
+</ng-template>
+
+
+<ng-template #prescriptions>
+    <div class="vertical-container-small">
+        <span>Prescrições</span>
+        <app-card>
+            <div class="vertical-container-small">
+                <!-- Already exist -->
+                <div *ngFor="let prescription of appointment.prescriptions" class="editable-item">
+                    <app-prescription [prescription]="prescription"></app-prescription>
+                    <app-system-btn class="editable-item-btn" [affirmative]="true">
+                        <span (click)="openPrescription(prescription)">Abrir</span>
+                    </app-system-btn>
+
+                    <div class="editable-item-btn">
+                        <app-system-btn [warningOutlined]="true">
+                            <span (click)="deletePrescription(prescription.id)">Deletar</span>
+                        </app-system-btn>
+                        <app-system-btn [affirmative]="true" (click)="openPrescription(prescription)">
+                            Abrir
+                        </app-system-btn>
+                    </div>
+                </div>
+                <!-- Created ones -->
+                <app-prescriptions [prescriptions]="prescriptionsTracker.create"></app-prescriptions>
+                <app-system-btn [affirmativeOutlined]="true">
+                    <span (click)="createPrescription()">Adicionar</span>
+                </app-system-btn>
+            </div>
+        </app-card>
+    </div>
+</ng-template>

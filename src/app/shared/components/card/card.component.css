@@ -1,0 +1,24 @@
+.card-container {
+    padding: var(--padding-large);
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius-medium);
+    border: var(--border-default);
+}
+
+.lean-card {
+    padding: var(--padding-medium);
+}
+
+.extra-lean {
+    padding: var(--padding-small);
+}
+
+:host ::ng-deep .card-body {
+    padding-left: var(--padding-horizontal-xlarge);
+    font-size: var(--font-size-small);
+    color: var(--soft-black);
+}
+
+:host ::ng-deep .shadowed {
+    box-shadow: 2px 2px 4px #aaa;
+}

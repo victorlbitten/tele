@@ -1,0 +1,13 @@
+<div class="home-header">
+    <span class="home-title">Todas as consultas</span>
+    <app-system-btn [affirmativeOutlined]="true" [routerLink]="['/appointments', 'new']">Marcar consulta</app-system-btn>
+</div>
+
+<div *ngIf="allAppointments$ | async" class="appointments-container">
+    <ng-container *ngFor="let appointment of allAppointments$ | async">
+        <app-appointment [appointment]="appointment"></app-appointment>
+    </ng-container>
+</div>
+
+
+

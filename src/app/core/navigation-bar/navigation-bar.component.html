@@ -1,0 +1,28 @@
+<div class="nav-bar-container">
+    <ul>
+        <li routerLink="/">
+            <a routerLink="/">
+                <mat-icon class="material-icons-outlined">home</mat-icon>
+                <span>Home</span>
+            </a>
+        </li>
+        <li routerLink="/appointments">
+            <a routerLink="/appointments">
+                <mat-icon>view_timeline</mat-icon>
+                <span>Consultas</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/pacients">
+                <mat-icon>face</mat-icon>
+                <span>Pacientes</span>
+            </a>
+        </li>
+        <li (click)="openDialog()">
+            <a>
+                <mat-icon>plus</mat-icon>
+                Adicionar
+            </a>
+        </li>
+    </ul>
+</div>

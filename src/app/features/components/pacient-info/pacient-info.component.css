@@ -1,0 +1,31 @@
+
+/* GENERAL INFO */
+.general-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small);
+}
+
+.general-info-personal {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--padding-horizontal-medium);
+}
+
+.general-info-address-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-xsmall);
+    padding: 0 var(--padding-horizontal-medium);
+}
+
+.general-info-address-container > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.general-info-personal *,
+.general-info-address-container * {
+    font-size: var(--font-size-small);
+    color: var(--numb-black)
+}

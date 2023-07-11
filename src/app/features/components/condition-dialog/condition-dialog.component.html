@@ -1,0 +1,32 @@
+<app-card>
+    <div class="dialog-container">
+        <form action="" [formGroup]="clinicalConditionForm">
+            <!-- Nome -->
+            <mat-form-field>
+                <mat-label>Condição</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <!-- Descrição -->
+            <mat-form-field>
+                <mat-label>Descrição</mat-label>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5" formControlName="description"></textarea>
+            </mat-form-field>
+
+            <!-- Condition status -->
+            <mat-form-field>
+                <mat-label>Evolução</mat-label>
+                <mat-select formControlName="clinicalConditionStatusId">
+                    <mat-option *ngFor="let status of conditionStatusText | keyvalue"
+                    [value]="status.key">
+                        {{status.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <app-system-btn>
+                <span (click)="close()">Salvar</span>
+            </app-system-btn>
+        </form>
+    </div>

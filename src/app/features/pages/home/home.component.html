@@ -1,0 +1,14 @@
+
+<div class="home-header">
+    <span class="home-title">Próximas consultas</span>
+    <app-system-btn routerLink="/appointments" [affirmativeOutlined]="true">Ver todas</app-system-btn>
+</div>
+
+<div *ngIf="nextAppointments$ | async" class="appointments-container">
+    <ng-container *ngFor="let appointment of nextAppointments$ | async">
+        <app-appointment [appointment]="appointment" [attendable]="true"></app-appointment>
+    </ng-container>
+</div>
+
+
+

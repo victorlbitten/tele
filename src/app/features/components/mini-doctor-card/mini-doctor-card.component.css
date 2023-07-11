@@ -1,0 +1,22 @@
+:host ::ng-deep .doctor-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-xsmall);
+}
+
+:host ::ng-deep .doctor-card-body {
+    display: flex;
+    justify-content: center;
+    gap: var(--padding-horizontal-small)
+
+}
+
+:host ::ng-deep .doctor-card-specialization {
+    font-size: var(--font-size-small);
+    color: var(--numb-black);
+}
+
+:host ::ng-deep .doctor-card-crm {
+    font-size: var(--font-size-xsmall);
+    color: var(--numb-black);
+}

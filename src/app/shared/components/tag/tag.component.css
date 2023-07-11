@@ -1,0 +1,24 @@
+.tag-container {
+    border: var(--border-default);
+    border-radius: var(--border-radius-soft);
+    padding: var(--padding-xsmall-long);
+    font-size: var(--font-size-xsmall);
+}
+
+.warning {
+    background-color: var(--ribbon-70);
+    border-color: var(--ribbon-85);
+    color: var(--pure-white)
+}
+
+.neutral {
+    background-color: var(--plum-70);
+    border-color: var(--plum-85);
+    color: var(--pure-white)
+}
+
+.affirmative {
+    background-color: var(--teal-85);
+    border-color: var(--teal-100);
+    color: var(--pure-white)
+}

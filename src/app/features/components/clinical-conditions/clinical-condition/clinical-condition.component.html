@@ -1,0 +1,11 @@
+<app-card [extraLean]="true">
+    <div class="clinical-condition-header">
+        <span>{{condition.name}}</span>
+        <app-tag [pattern]="tagPatterns[condition['clinicalConditionStatusId']]">
+            {{conditionText[condition['clinicalConditionStatusId']]}}
+        </app-tag>
+    </div>
+    <div class="card-body">
+        {{condition.description}}
+    </div>
+</app-card>

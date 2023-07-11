@@ -1,0 +1,22 @@
+<ng-container *ngIf="bordered">
+    <app-card [extraLean]="true">
+        <ng-container *ngTemplateOutlet="doctorCard"></ng-container>
+    </app-card>
+</ng-container>
+
+<ng-container *ngIf="!bordered">
+    <ng-container *ngTemplateOutlet="doctorCard"></ng-container>
+</ng-container>
+
+
+<ng-template #doctorCard>
+    <div class="doctor-card-container">
+        <div class="doctor-card-header">
+            <app-avatar [name]="doctor.firstName + ' ' + doctor.lastName" [small]="small" [extraSmall]="extraSmall"></app-avatar>
+        </div>
+        <div class="doctor-card-body">
+            <span class="doctor-card-specialization">{{doctor.specialization}}</span>
+            <span class="doctor-card-crm">CRM: {{doctor.crm}}</span>
+        </div>
+    </div>
+</ng-template>

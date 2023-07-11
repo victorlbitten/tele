@@ -1,0 +1,60 @@
+.info-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.clinical-condition-info {
+    flex-grow: 1;
+}
+
+.appointment-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-xlarge);
+    position: relative;
+}
+
+.appointment-container-attendable:hover .start-appointment-btn {
+    display: initial;
+}
+
+.start-appointment-btn {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 82px);
+}
+
+
+.appointment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pacient-name {
+    font-size: var(--font-size-medium);
+}
+
+.appointment-date {
+    display: flex;
+    gap: var(--padding-horizontal-small);
+}
+
+.appointment-day {
+    color: var(--soft-black);
+}
+
+.appointment-time {
+    font-size: var(--font-size-small);
+    color: var(--numb-black)
+}
+
+.appointment-doctor-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small);
+    justify-content: flex-start;
+    align-items: flex-start;
+}

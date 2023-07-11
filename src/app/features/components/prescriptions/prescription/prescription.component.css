@@ -1,0 +1,33 @@
+
+.prescriptionElement {
+    display: flex;
+    gap: var(--padding-horizontal-xsmall);
+}
+
+.bar {
+    width: 5px;
+    background-color: var(--plum-85);
+    border-radius: var(--border-radius-soft);
+}
+
+.prescription {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-xsmall);
+    font-size: 5px;
+}
+
+.prescription-header {
+    font-size: var(--font-size-small);
+    color: var(--soft-black);
+}
+
+.prescription-times {
+    font-size: var(--font-size-small);
+    color: var(--numb-black);
+}
+
+.prescription-instructions {
+    font-size: var(--font-size-xsmall);
+    color: var(--numb-black);
+}

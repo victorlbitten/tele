@@ -1,0 +1,74 @@
+.pacient-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-xlarge);
+}
+
+
+
+/* HEADER */
+.pacient-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pacient-details-header-title {
+    font-size: var(--font-size-large);
+    color: var(--soft-black);
+}
+
+
+
+
+/* SEEN DOCTORS */
+.seen-doctors-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small)
+}
+.seen-doctors-cards-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--padding-horizontal-xlarge)
+}
+
+
+
+
+/* CONDITIONS AND PRESCRIPTIONS */
+.conditions-prescriptions-outer-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small);
+}
+.conditions-prescriptions-container {
+    display: flex;
+    gap: var(--padding-horizontal-medium);
+}
+
+.conditions-container {
+    flex-grow: 1;
+}
+
+
+
+
+/* HISTORY CONTAINER */
+.appointment-history-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small);
+}
+
+.appointment-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-history-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small);
+}

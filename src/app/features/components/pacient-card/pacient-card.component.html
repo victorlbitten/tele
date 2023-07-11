@@ -1,0 +1,62 @@
+<app-card [shadow]="true">
+    <div style="display: flex; flex-direction: column;">
+        <ng-container *ngTemplateOutlet="cardHeader"></ng-container> 
+        <ng-container *ngTemplateOutlet="cardBody"></ng-container>
+        <ng-container *ngTemplateOutlet="actionBtns"></ng-container>
+    </div>
+</app-card>
+
+
+
+<ng-template #cardHeader>
+    <div class="card-header-container" (click)="toggleExpansionState()">
+        <span class="card-header-title">
+            <app-avatar [name]="pacient['pacientInfo']['generalInfo']['name']"></app-avatar> 
+        </span>
+
+        <app-system-btn [small]="true" [round]="true">
+            <mat-icon *ngIf="expanded">keyboard_arrow_up</mat-icon>
+            <mat-icon *ngIf="!expanded">keyboard_arrow_down</mat-icon>
+        </app-system-btn>
+    </div>
+</ng-template>
+
+
+<ng-template #cardBody>
+    <div *ngIf="expanded">
+        <div class="seen-doctors-container">
+            <div class="seen-doctors-title">
+                <span>Já consultou com</span>
+                <app-system-btn [affirmativeOutlined]="true" [small]="true">Ver todas as consultas</app-system-btn>
+            </div>
+            <div class="seen-doctors-cards-container">
+                <ng-container *ngFor="let doctor of pacient.seenDoctors">
+                    <app-mini-doctor-card [doctor]="doctor"></app-mini-doctor-card>
+                </ng-container>
+            </div>
+        </div>
+
+
+        <div class="info-container">
+            <div class="info-container-conditions">
+                <span>Condições Clínicas</span>
+                <app-clinical-conditions [clinicalConditions]="pacient.lastClinicalConditions" class="clinical-condition-info">
+                </app-clinical-conditions>
+            </div>
+            <div>
+                <span>Medicamentos</span>
+                <app-prescriptions [prescriptions]="pacient.lastPrescriptions">
+                </app-prescriptions>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #actionBtns>
+    <div class="action-btns-container" *ngIf="expanded">
+        <app-system-btn [affirmativeOutlined]="true" [routerLink]="['/pacients', pacient.pacientInfo.id]">
+            Ver informações completas
+        </app-system-btn>
+        <app-system-btn [affirmative]="true">Marcar consulta</app-system-btn>
+    </div>
+</ng-template>

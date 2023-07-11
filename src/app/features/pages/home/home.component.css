@@ -1,0 +1,15 @@
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--padding-vertical-xlarge);
+}
+
+.home-title {
+    font-size: var(--font-size-xlarge);
+}
+
+.appointments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

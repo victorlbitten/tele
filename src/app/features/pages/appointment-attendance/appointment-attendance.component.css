@@ -1,0 +1,30 @@
+.vertical-container-large {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-large);
+}
+.vertical-container-medium {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-medium);
+}
+.vertical-container-small {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small);
+}
+
+
+.editable-item {
+    position: relative;
+}
+.editable-item-btn {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.editable-item:hover > .editable-item-btn {
+    display: flex;
+    gap: var(--padding-horizontal-xsmall);
+}

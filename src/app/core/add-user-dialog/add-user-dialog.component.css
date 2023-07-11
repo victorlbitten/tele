@@ -1,0 +1,35 @@
+.dialog-container {
+    min-width: 30ch;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small)
+}
+
+
+.shown-form-controllers-container {
+    display: flex;
+}
+
+.shown-form-controllers-btn {
+    flex-grow: 1;
+    padding: var(--padding-medium);
+    border: 1px solid #fff;
+    background-color: #f0f0f0;
+    text-align: center;
+    cursor: pointer;
+}
+
+ .active-form {
+    background-color: #F1557C;
+    color: var(--pure-white);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-vertical-small);
+}
+
+mat-form-field {
+    width: 100%;
+}

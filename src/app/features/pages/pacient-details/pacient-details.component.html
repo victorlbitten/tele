@@ -1,0 +1,82 @@
+<div class="pacient-details-container">
+    <ng-container *ngTemplateOutlet="header"></ng-container>
+
+    <ng-container *ngTemplateOutlet="generalInfo"></ng-container>
+
+
+    <ng-container *ngTemplateOutlet="seenDoctors"></ng-container>
+
+    <ng-container *ngTemplateOutlet="conditionsAndPrescriptions"></ng-container>
+
+    <ng-container *ngTemplateOutlet="appointmentsHistory"></ng-container>
+</div>
+
+
+
+
+<ng-template #header>
+    <div class="pacient-details-header" *ngIf="pacient$ | async as pacient">
+        <span class="pacient-details-header-title">{{pacient.pacient.generalInfo.name}} - Detalhes</span>
+        <app-system-btn [affirmative]="true">Editar informações</app-system-btn>
+    </div>
+</ng-template>
+
+
+
+<ng-template #generalInfo>
+    <ng-container *ngIf="pacient$ | async as pacient">
+        <app-pacient-info [pacient]="pacient.pacient"></app-pacient-info>
+    </ng-container>
+</ng-template>
+
+
+
+<ng-template #seenDoctors>
+    <div class="seen-doctors-container">
+        <span class="seen-doctors-title">Já consultou com</span>
+        <div class="seen-doctors-cards-container" *ngIf="pacient$ | async as pacient">
+            <ng-container *ngFor="let doctor of pacient.doctors">
+                <app-mini-doctor-card [doctor]="doctor" [small]="true"></app-mini-doctor-card>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+
+
+<ng-template #conditionsAndPrescriptions>
+    <div class="conditions-prescriptions-outer-container">
+        <span>Condições clínicas e prescrições atuais</span>
+        <app-card>
+            <div class="conditions-prescriptions-container" *ngIf="pacient$ | async as pacient">
+                <!-- Conditions -->
+                <app-clinical-conditions [clinicalConditions]="pacient.clinicalConditions"
+                    class="conditions-container">
+                </app-clinical-conditions>
+                <!-- Prescriptions -->
+                <app-prescriptions [prescriptions]="pacient.prescriptions"></app-prescriptions>
+            </div>
+        </app-card>
+    </div>
+</ng-template>
+
+
+
+<ng-template #appointmentsHistory>
+    <div class="appointment-history-container">
+        <!-- Header -->
+        <div class="appointment-history-header">
+            <span>Histórico de consultas</span>
+            <app-system-btn [affirmativeOutlined]="true">
+                Marcar consulta
+            </app-system-btn>
+        </div>
+        <!-- Appointments Cards -->
+        <div class="appointment-history-cards-container" *ngIf="pacient$ | async as pacient">
+            <ng-container *ngFor="let appointment of pacient.appointments">
+                <app-appointment [appointment]="appointment"></app-appointment>
+            </ng-container>
+
+        </div>
+    </div>
+</ng-template>
